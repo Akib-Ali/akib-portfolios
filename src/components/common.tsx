@@ -1,1 +1,1 @@
-export const resumeLink = "/Resume/Akib_Resume_React_Developer.pdf"
+export const resumeLink = "https://drive.google.com/file/d/1QbsXYVku-fQi6Yd0UrhqGttWO2V8XZRA/view?usp=drive_link"
