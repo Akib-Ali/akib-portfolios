@@ -4,16 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-sitemap",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "postbuild": "next-sitemap"
+    "lint": "eslint"
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-slot": "^1.2.3",
+    "@react-email/render": "^2.0.6",
     "@tabler/icons-react": "^3.35.0",
     "@tsparticles/engine": "^3.9.1",
     "@tsparticles/react": "^3.0.0",
