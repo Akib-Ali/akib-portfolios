@@ -1,129 +1,108 @@
+
 "use client";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
-import { SiRedux, SiTypescript, SiNextdotjs, SiMongodb, SiTailwindcss } from "react-icons/si";
+import { FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
+import { SiRedux, SiTypescript, SiNextdotjs, SiMongodb, SiTailwindcss, SiExpress } from "react-icons/si";
 
 const SkillMain = () => {
-    useEffect(() => {
-        AOS.init({ duration: 1200, easing: "ease-out-back", once: false });
-    }, []);
+  // AOS Initialize for scroll effects
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-out-cubic",
+      once: false // 'false' karne se har baar scroll karne par animation hoga
+    });
+  }, []);
 
-    return (
-        <div id="skills" className="py-16 px-6 bg-white">
-            {/* Heading */}
+  const skills = [
+    { name: "React.js", icon: <FaReact />, color: "text-[#2D4E9D]" },
+    { name: "Next.js", icon: <SiNextdotjs />, color: "text-black" },
+    { name: "TypeScript", icon: <SiTypescript />, color: "text-[#4F6FB3]" },
+    { name: "Node.js", icon: <FaNodeJs />, color: "text-[#8CC63F]" },
+    { name: "MongoDB", icon: <SiMongodb />, color: "text-[#47A248]" },
+    { name: "Express.js", icon: <SiExpress />, color: "text-gray-600" },
+    { name: "Tailwind", icon: <SiTailwindcss />, color: "text-[#38BDF8]" },
+    { name: "Redux", icon: <SiRedux />, color: "text-[#764ABC]" },
+    { name: "GitHub", icon: <FaGithub />, color: "text-black" },
+  ];
 
-            <div className="text-center mb-12">
-                <div className="text-center mb-16" data-aos="zoom-in-down">
-                    <h1
-                        className="flex items-center justify-center gap-3 text-4xl font-extrabold mb-6 
-                   bg-clip-text text-transparent 
-                   bg-gradient-to-r from-[#2D4E9D] via-[#4F6FB3] to-[#8CC63F]"
-                    >
-                        My Skill
-                    </h1>
+  return (
+    <section className="relative py-28 bg-white overflow-hidden" id="skills">
 
+      {/* Background Blobs with Pulse Animation */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[#2D4E9D]/20 to-transparent blur-[120px] animate-pulse-slow" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[#8CC63F]/20 to-transparent blur-[120px] animate-pulse-slow" />
+      </div>
 
-                    <h3 className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                        Passionate about turning complex problems into simple, efficient solutions with a focus on
-                        <span className="text-[#2D4E9D] font-semibold"> performance, scalability, </span>
-                        and
-                        <span className="text-[#8CC63F] font-semibold"> clean code practices. </span>
-                    </h3>
-
-
-                </div>
-            </div>
-
-            <div className="grid max-w-7xl m-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                {[
-                    {
-                        icon: <FaHtml5 className="text-6xl text-orange-500 mx-auto mb-4 animate-bounce-slow" />,
-                        label: "HTML",
-                        row: "left",
-                        bg: "from-orange-50 to-white",
-                    },
-                    {
-                        icon: <FaCss3Alt className="text-6xl text-blue-600 mx-auto mb-4 animate-pulse-slow" />,
-                        label: "CSS",
-                        row: "left",
-                        bg: "from-blue-50 to-white",
-                    },
-                    {
-                        icon: <FaJs className="text-6xl text-yellow-500 mx-auto mb-4 animate-wiggle-slow" />,
-                        label: "JavaScript",
-                        row: "left",
-                        bg: "from-yellow-50 to-white",
-                    },
-                    {
-                        icon: <FaReact className="text-6xl text-cyan-500 mx-auto mb-4 animate-spin-slow" />,
-                        label: "React",
-                        row: "left",
-                        bg: "from-cyan-50 to-white",
-                    },
-
-                    // Second row
-                    {
-                        icon: <SiRedux className="text-6xl text-purple-600 mx-auto mb-4 animate-bounce-slow" />,
-                        label: "Redux",
-                        row: "right",
-                        bg: "from-purple-50 to-white",
-                    },
-                    {
-                        icon: <SiTypescript className="text-6xl text-blue-700 mx-auto mb-4 animate-pulse-slow" />,
-                        label: "TypeScript",
-                        row: "right",
-                        bg: "from-blue-50 to-white",
-                    },
-                    {
-                        icon: <SiNextdotjs className="text-6xl text-black mx-auto mb-4 animate-wiggle-slow" />,
-                        label: "Next.js",
-                        row: "right",
-                        bg: "from-gray-100 to-white",
-                    },
-                    {
-                        icon: <FaNodeJs className="text-6xl text-green-600 mx-auto mb-4 animate-spin-slow" />,
-                        label: "Node.js",
-                        row: "right",
-                        bg: "from-green-50 to-white",
-                    },
-
-                    // Third row
-                    {
-                        icon: <SiMongodb className="text-6xl text-green-700 mx-auto mb-4 animate-bounce-slow" />,
-                        label: "MongoDB",
-                        row: "left",
-                        bg: "from-green-100 to-white",
-                    },
-                    {
-                        icon: <FaGithub className="text-6xl text-gray-800 mx-auto mb-4 animate-pulse-slow" />,
-                        label: "GitHub",
-                        row: "left",
-                        bg: "from-gray-100 to-white",
-                    },
-                    {
-                        icon: <SiTailwindcss className="text-6xl text-sky-400 mx-auto mb-4 animate-wiggle-slow" />,
-                        label: "Tailwind CSS",
-                        row: "left",
-                        bg: "from-sky-50 to-white",
-                    },
-                ].map((skill, i) => (
-                    <div
-                        key={i}
-                        className={`p-6 w-full max-w-xs mx-auto bg-gradient-to-b ${skill.bg} rounded-xl shadow-lg text-center
-                 transition-transform hover:scale-105 hover:shadow-2xl`}
-                        data-aos={skill.row === "left" ? "fade-right" : "fade-left"}
-                        data-aos-delay={100 + (i % 4) * 100}
-                    >
-                        {skill.icon}
-                        <h3 className="text-lg font-semibold">{skill.label}</h3>
-                    </div>
-                ))}
-            </div>
+      <div className="relative z-10">
+        {/* Header Section - Scroll Animation: Fade Down */}
+        <div className="max-w-7xl mx-auto px-6 mb-20 text-center" data-aos="fade-down">
+          <h2 className="text-[#2D4E9D] font-mono font-black tracking-[0.4em] text-xs mb-4 uppercase">My Tech Stack</h2>
+          <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase mb-6">
+            Always <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D4E9D] to-[#8CC63F]">Evolving</span>
+          </h1>
+          <div className="w-24 h-2 bg-gradient-to-r from-[#2D4E9D] to-[#8CC63F] mx-auto rounded-full" />
         </div>
-    );
+
+        {/* 1. Marquee Row - Scroll Animation: Zoom In */}
+        <div className="flex overflow-hidden select-none gap-10 group mb-16" data-aos="zoom-in">
+          <div className="flex items-center justify-around flex-shrink-0 min-w-full gap-10 animate-marquee">
+            {skills.map((skill, i) => (
+              <div key={i} className="flex items-center gap-6 px-10 py-6 hover:scale-110 transition-transform duration-300">
+                <div className={`text-6xl md:text-8xl ${skill.color} drop-shadow-md`}>
+                  {skill.icon}
+                </div>
+                <span className="text-4xl md:text-6xl font-black text-slate-200 uppercase tracking-tighter">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+          </div>
+          {/* Loop Duplicate */}
+          <div aria-hidden="true" className="flex items-center justify-around flex-shrink-0 min-w-full gap-10 animate-marquee">
+            {skills.map((skill, i) => (
+              <div key={`dup-${i}`} className="flex items-center gap-6 px-10 py-6 hover:scale-110 transition-transform duration-300">
+                <div className={`text-6xl md:text-8xl ${skill.color} drop-shadow-md`}>
+                  {skill.icon}
+                </div>
+                <span className="text-4xl md:text-6xl font-black text-slate-200 uppercase tracking-tighter">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 2. Skills Grid - Individual Skill Scroll Animation: Fade Up */}
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 mt-20">
+          {skills.slice(0, 8).map((skill, i) => (
+            <div
+              key={`grid-${i}`}
+              className="flex flex-col items-center group cursor-pointer"
+              data-aos="fade-up"
+              data-aos-delay={i * 100} // Har icon thoda gap ke baad aayega (Staggered effect)
+            >
+              <div className={`text-5xl md:text-7xl ${skill.color} mb-4 transition-all duration-500 group-hover:rotate-[360deg] group-hover:scale-125`}>
+                {skill.icon}
+              </div>
+              <h3 className="text-lg font-bold text-slate-800 uppercase tracking-widest group-hover:text-[#2D4E9D]">
+                {skill.name}
+              </h3>
+              <div className="h-[2px] w-0 bg-[#8CC63F] group-hover:w-full transition-all duration-500 mt-2" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Decorative Rotating Background Icon */}
+      <div className="absolute -bottom-20 -left-20 text-[20rem] text-slate-50 animate-spin-slow -z-10 opacity-50">
+        <FaReact />
+      </div>
+    </section>
+  );
 };
 
 export default SkillMain;
-

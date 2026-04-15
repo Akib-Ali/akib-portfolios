@@ -3,7 +3,6 @@
 import { useEffect } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
-// import Image from "next/image"
 
 
 const Testimonial = () => {
@@ -14,54 +13,55 @@ const Testimonial = () => {
     })
   }, [])
 
-  const testimonials = [
+ 
+const testimonials = [
     {
-      name: "John Doe",
-      role: "CEO, Stripe",
+      name: "Aarav Patel",
+      role: "Founder, PixelWave Studio",
       description:
-        "Stripe made online payments seamless and secure for our business. Their tools are unmatched.",
-      img: "https://randomuser.me/api/portraits/men/32.jpg",
+        "Working with this team was a great experience. They delivered exactly what we envisioned — clean design, fast performance, and amazing attention to detail.",
+      img: "https://randomuser.me/api/portraits/men/45.jpg",
     },
     {
-      name: "Jane Smith",
-      role: "Product Manager, Netflix",
+      name: "Meera Singh",
+      role: "Marketing Manager, BloomCraft",
       description:
-        "Working with Netflix has been a game-changer. Their customer-first approach is inspiring.",
-      img: "https://randomuser.me/api/portraits/women/44.jpg",
+        "The professionalism and creativity exceeded our expectations. Our website now feels modern and truly reflects our brand identity.",
+      img: "https://randomuser.me/api/portraits/women/36.jpg",
     },
     {
-      name: "Alex Johnson",
-      role: "Engineer, Google",
+      name: "Rahul Sharma",
+      role: "Tech Lead, Innovent Labs",
       description:
-        "Google&apos;s products empower us to scale faster and reach billions of users worldwide.",
-      img: "https://randomuser.me/api/portraits/men/65.jpg",
+        "They handled everything from planning to deployment with clear communication. The end product was reliable, well-built, and delivered on time.",
+      img: "https://randomuser.me/api/portraits/men/51.jpg",
     },
     {
-      name: "Emily Davis",
-      role: "Designer, Meta",
+      name: "Sanya Kapoor",
+      role: "Entrepreneur, Luxe Threads",
       description:
-        "Meta&apos;s focus on innovation and community keeps pushing the boundaries of what’s possible.",
-      img: "https://randomuser.me/api/portraits/women/22.jpg",
+        "Absolutely loved the design and smooth functionality. My eCommerce site now feels professional and easy to manage — our sales grew within weeks!",
+      img: "https://randomuser.me/api/portraits/women/29.jpg",
     },
     {
-      name: "Michael Brown",
-      role: "CTO, Amazon",
+      name: "Vikram Desai",
+      role: "Operations Head, NextGen Logistics",
       description:
-        "Amazon&apos; cloud infrastructure transformed the way we scale our products globally.",
-      img: "https://randomuser.me/api/portraits/men/12.jpg",
+        "From day one, the team understood our business goals. The custom dashboard they built has simplified our operations drastically.",
+      img: "https://randomuser.me/api/portraits/men/61.jpg",
     },
     {
-      name: "Sophia Wilson",
-      role: "Marketing Head, Microsoft",
+      name: "Isha Verma",
+      role: "Content Creator, The Creative Edit",
       description:
-        "Microsoft&apos;s tools have helped us collaborate better and boost productivity across teams.",
-      img: "https://randomuser.me/api/portraits/women/68.jpg",
+        "The website they created not only looks stunning but also loads super fast. I keep getting compliments from clients and followers!",
+      img: "https://randomuser.me/api/portraits/women/54.jpg",
     },
-  ]
+  ];
 
   return (
     <div id="testimonials"
-      className="max-w-7xl mx-auto px-2 py-16"
+      className="max-w-7xl mx-auto px-2 py-20"
     >
 
 
@@ -94,7 +94,7 @@ const Testimonial = () => {
           <div
             key={i}
             className="relative bg-gradient-to-b from-purple-50 to-white shadow-xl rounded-2xl p-8 pt-16 text-center hover:scale-105 transition-transform duration-300"
-            data-aos={Math.floor(i / 3) % 2 === 0 ? "fade-right" : "fade-left"}
+            data-aos={Math.floor(i / 3) % 2 === 0 ? "fade-up" : "fade-up"}
           >
             {/* Curved Top for Image */}
             <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-28 h-28 rounded-full bg-white shadow-lg flex items-center justify-center">
@@ -104,18 +104,10 @@ const Testimonial = () => {
                 className="w-24 h-24 rounded-full object-cover"
               />
 
-              {/* <Image
-                src={t.img}
-                alt={t.name}
-                width={96}   // 24 * 4 = 96px
-                height={96}  // same height
-                className="w-24 h-24 rounded-full object-cover"
-              /> */}
 
             </div>
 
             <div className="mt-8">
-              {/* <p className="text-gray-600 italic mb-4">"{t.description}"</p> */}
               <p className="text-gray-600 italic mb-4">&quot;{t.description}&quot;</p>
 
               <h3 className="text-lg font-semibold text-gray-900">{t.name}</h3>

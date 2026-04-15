@@ -5,19 +5,18 @@ import { Button } from "./ui/moving-border"
 
 const TextGenerationText = () => {
 
-useEffect(() => {
+    useEffect(() => {
         const interval = setInterval(() => {
         }, 100)
         return () => clearInterval(interval)
     }, [])
 
 
-    const words = `I’m Akib Ali, a results-driven Full Stack MERN Developer with 2.5 years of experience in designing and developing high-performance web applications. I specialize in React.js, Node.js, Express, and MongoDB, ensuring seamless user experiences and scalable backend solutions.
+    const words = `I’m Akib Ali, a Software Engineer with 3 years of experience specializing in building scalable, performance-driven web applications. While my primary focus is creating seamless user interfaces with React.js and Next.js, my expertise in the MERN stack (MongoDB, Express, Node.js) allows me to architect end-to-end solutions.
 
-With a strong foundation in front-end and back-end development, I focus on writing clean, efficient, and maintainable code. I am passionate about problem-solving, performance optimization, and delivering user-centric digital solutions that drive business success.
+I focus on writing clean, maintainable code and optimizing front-end performance for a superior user experience. I understand the intricacies of API integration and backend logic, which helps me bridge the gap between complex data and intuitive UI.
 
-Let’s collaborate to build innovative and impactful web solutions! 🚀
-`;
+Let’s build something technically robust and highly scalable! 🚀`;
 
     return (
 

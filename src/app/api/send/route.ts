@@ -8,6 +8,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { name, email, message, whatsappNumber } = body;
 
+    // Validation
     if (!name || !email || !message) {
       return NextResponse.json({
         success: false,
@@ -15,41 +16,78 @@ export async function POST(req: Request) {
       });
     }
 
-    const logoUrl = "https://www.nanhekissey.com/logo.png";
+    const logoUrl = "https://www.codebyakib.com/akib-final-logo.jpg";
 
+    // Polished Email Template
     const emailContent = `
-      <div style="max-width:700px;margin:0 auto;padding:20px;font-family:-webkit-system-font, Helvetica Neue, Helvetica, sans-serif;font-size:14px;">
-        <img src="${logoUrl}" alt="Portfolio Logo" width="200px"/>
-        <p style="color:#777; line-height:24px; font-size:16px; margin:20px 0;">
-          Hi <strong>${name}</strong>,
-        </p>
-        <p style="color:#777; line-height:24px; font-size:15px;">
-          Thanks for reaching out! I've received your message and will get back to you as soon as possible. 🚀
-        </p>
-        <p style="line-height:24px; color:#666; font-size:16px; font-weight:bold;">📨 Your Message:</p>
-        <p style="background-color:#fbfbfb;padding:10px;font-size:15px;line-height:20px;color:#666;margin-top:5px;border:1px solid #e1e1e1;border-left:3px solid #2196F3;">
-          ${message.replace(/\n/g, "<br/>")}
-        </p>
-        <p style="color:#777; line-height:24px; font-size:15px; margin-top:15px;">
-          <strong>Name:</strong> ${name}<br/>
-          <strong>Email:</strong> ${email}<br/>
-          ${whatsappNumber ? `<strong>WhatsApp:</strong> ${whatsappNumber}<br/>` : ""}
-        </p>
-        <p style="color:#777; line-height:24px; font-size:15px; margin-top:20px;">
-          Best Regards,<br/>
-          <strong>Akib Ali</strong><br/>
-          <a href="https://yourportfolio.com" style="color:#2196F3;">https://yourportfolio.com</a>
-        </p>
-        <div style="margin-top:50px;padding:20px;border-top:1px solid #ddd;font-size:14px;color:#999;">
-          Reply to this email if you have any questions.
+      <div style="max-width:700px;margin:0 auto;padding:25px;
+                  font-family:'Segoe UI',Helvetica,Arial,sans-serif;
+                  font-size:15px;color:#333;border-radius:10px;
+                  background:#ffffff;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+
+        <!-- Header / Logo -->
+        <div style="text-align:center;">
+          <img src="${logoUrl}" alt="Portfolio Logo" width="180"
+               style="border-radius:10px;margin-bottom:15px;" />
+          <h2 style="color:#2D4E9D;margin:0;">Thanks for reaching out 🚀</h2>
         </div>
-      </div>
+
+        <p style="margin-top:25px;color:#555;line-height:1.7;">
+          Hi <strong>${name}</strong>,<br/>
+          I truly appreciate you taking the time to contact me! Your message has been received,
+          and I’ll get back to you shortly with more details.
+        </p>
+
+        <!-- Message Section -->
+        <div style="margin:20px 0;padding:15px 20px;background:#f8f9fb;
+                    border-left:4px solid #4F6FB3;border-radius:6px;">
+          <p style="margin:0;font-size:15px;color:#444;line-height:1.6;">
+            <strong>📨 Your Message:</strong><br/>
+            ${message.replace(/\n/g, "<br/>")}
+          </p>
+        </div>
+
+        <!-- Contact Details -->
+        <p style="margin-top:20px;line-height:1.8;color:#555;">
+          <strong>👤 Name:</strong> ${name}<br/>
+          <strong>📧 Email:</strong> ${email}<br/>
+          ${whatsappNumber ? `<strong>💬 WhatsApp:</strong> ${whatsappNumber}<br/>` : ""}
+        </p>
+
+        <!-- Footer -->
+       <!-- Footer -->
+<div style="margin-top:35px;border-top:1px solid #eee;padding-top:20px;">
+  <p style="color:#555;margin-bottom:10px;">Best Regards,</p>
+  <p style="font-weight:bold;font-size:16px;margin:0;">Akib Ali</p>
+  <p style="margin:4px 0 12px;color:#777;">Full Stack Developer</p>
+
+  <!-- Contact Info -->
+  <p style="color:#555;line-height:1.8;margin:8px 0;">
+    📞 <a href="tel:+919318384168" style="color:#2D4E9D;text-decoration:none;">+91 9318384168</a><br/>
+    📧 <a href="mailto:codebyakib@gmail.com" style="color:#2D4E9D;text-decoration:none;">codebyakib@gmail.com</a>
+  </p>
+
+  <!-- Social Links -->
+  <div style="margin-top:10px;">
+    <a href="https://www.codebyakib.com/" style="color:#2D4E9D;text-decoration:none;margin-right:10px;">🌐 Portfolio</a> |
+    <a href="https://www.linkedin.com/in/akib-ali-1695081b8/" style="color:#0A66C2;text-decoration:none;margin:0 10px;">💼 LinkedIn</a> 
+  </div>
+</div>
+
+<!-- Bottom Info -->
+<div style="margin-top:40px;padding:10px;text-align:center;font-size:13px;color:#888;border-top:1px solid #eee;">
+  You’re receiving this email because you reached out via 
+  <a href="https://www.codebyakib.com/contact" style="color:#4F6FB3;">codebyakib.com/contact</a>.<br/>
+  Feel free to reply directly to continue our chat!
+</div>
+
     `;
 
+    // Send Email
     const data = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: email,
-      // cc:"codebyakib@gmail.com",
+      from: "codebyakib <contact@codebyakib.com>",
+      to: email, // client
+      cc: ["codebyakib@gmail.com", "akib7599@gmail.com"], // your copies
       subject: `New message from ${name}`,
       html: emailContent,
     });
@@ -60,4 +98,5 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: false, error });
   }
 }
+
 

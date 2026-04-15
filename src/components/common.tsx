@@ -1,0 +1,1 @@
+export const resumeLink = "/Resume/Akib_Resume_React_Developer.pdf"
