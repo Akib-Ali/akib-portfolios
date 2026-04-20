@@ -28,7 +28,7 @@ export default function Experience() {
     {
       company: "Udaan Technologies Pvt. Ltd.",
       role: "Frontend Developer",
-      period: "2025 — Present",
+      period: "Feb 2025 — Present",
       location: "Indirapuram, UP",
       description: "Architecting scalable frontends with React & Redux. Specialized in Shadcn UI & performance tuning.",
       skills: ["React", "Redux", "Shadcn", "Tailwind"]
@@ -36,19 +36,19 @@ export default function Experience() {
     {
       company: "Invoxico Technologies",
       role: "Frontend Developer",
-      period: "2023 — 2024",
+      period: "Nov 2022 — Oct 2024",
       location: "Mohali, PB",
       description: "Optimized web performance and managed complex RESTful services with strict Git workflows.",
       skills: ["React", "API", "GitHub", "JS"]
     },
-    {
-      company: "Axionic Software Pvt. Ltd.",
-      role: "Full Stack Developer",
-      period: "2022 — 2023",
-      location: "Yamuna Nagar, HR",
-      description: "Developed end-to-end MERN stack solutions. Engineered robust backend APIs with Node.js.",
-      skills: ["MongoDB", "Node.js", "Express", "React"]
-    }
+    // {
+    //   company: "Axionic Software Pvt. Ltd.",
+    //   role: "Full Stack Developer",
+    //   period: "2022 — 2023",
+    //   location: "Yamuna Nagar, HR",
+    //   description: "Developed end-to-end MERN stack solutions. Engineered robust backend APIs with Node.js.",
+    //   skills: ["MongoDB", "Node.js", "Express", "React"]
+    // }
   ];
 
   return (
